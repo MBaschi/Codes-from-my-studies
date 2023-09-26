@@ -1,0 +1,12 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F45K22 -DL -O11111114 -fo8 -N"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 4-es noi\STEP_4\MyProject.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 4-es noi\STEP_4\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "step_4.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
+hint: 0	1139	Available RAM: 1515 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	step_4.c
+hint: 34	1163	Variable 'cron_char' has been declared, but not used	step_4.c
+diagnostics: 182	123	Compiled Successfully	step_4.c
+diagnostics: 0	127	All files Compiled in 47 ms	 
+hint: 0	1144	Used RAM (bytes): 101 (7%)  Free RAM (bytes): 1414 (93%)	Used RAM (bytes): 101 (7%)  Free RAM (bytes): 1414 (93%)
+hint: 0	1144	Used ROM (bytes): 2040 (6%)  Free ROM (bytes): 30728 (94%)	Used ROM (bytes): 2040 (6%)  Free ROM (bytes): 30728 (94%)
+diagnostics: 0	125	Project Linked Successfully	MyProject.mcppi
+diagnostics: 0	128	Linked in 15 ms	 
+diagnostics: 0	129	Project 'MyProject.mcppi' completed: 218 ms	 
+diagnostics: 0	103	Finished successfully: 17 apr 2021, 16:42:28	MyProject.mcppi

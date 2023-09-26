@@ -1,0 +1,4 @@
+	Onset	Offset	
+Pre	1026	1086	
+Ictal	1086	1196
+Post	1196	1316

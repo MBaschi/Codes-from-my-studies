@@ -1,0 +1,1 @@
+%identico al 6 ma con dati divversi

@@ -1,0 +1,13 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F45K22 -DL -O11111114 -fo8 -N"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\27_07_2018\ParteB\B.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\27_07_2018\ParteB\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "B.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
+hint: 0	1139	Available RAM: 1515 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	B.c
+diagnostics: 112	123	Compiled Successfully	B.c
+hint: 22	1164	Variable 'RA1_NEW' has been eliminated by optimizer	B.c
+hint: 26	1164	Variable 'potenza_motore_percent' has been eliminated by optimizer	B.c
+diagnostics: 0	127	All files Compiled in 47 ms	 
+hint: 0	1144	Used RAM (bytes): 86 (6%)  Free RAM (bytes): 1429 (94%)	Used RAM (bytes): 86 (6%)  Free RAM (bytes): 1429 (94%)
+hint: 0	1144	Used ROM (bytes): 2380 (7%)  Free ROM (bytes): 30388 (93%)	Used ROM (bytes): 2380 (7%)  Free ROM (bytes): 30388 (93%)
+diagnostics: 0	125	Project Linked Successfully	B.mcppi
+diagnostics: 0	128	Linked in 16 ms	 
+diagnostics: 0	129	Project 'B.mcppi' completed: 219 ms	 
+diagnostics: 0	103	Finished successfully: 16 giu 2021, 11:29:38	B.mcppi

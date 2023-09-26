@@ -1,0 +1,27 @@
+clear all
+close all
+disp("_________________")
+n=10;
+A=diag(5*ones(n,1))+diag(-ones(n-1,1),1)+diag(-ones(n-1,1),-1);
+g=@(x)(-2*sin(x)+pi);
+f=@(x)A*x+g(x);
+
+phi=@(x)norm(f(x)).^2;
+
+J=@(x)A-
+Vphi=@(x)2*J'(x)*f(x);
+tol=10^(-8);
+x0=ones(n,1);
+
+%a)
+OPTIONS=optimset('Tolx',tol);
+xa = fminsearch(phi,x0,OPTIONS);
+
+%b)
+xb=x0;
+er_b=10;
+while er_b>tol
+    xb=x_;
+    xb=xb-gam*Vphi;
+    er_b=norm(xb-x_);
+end

@@ -1,0 +1,4 @@
+	Onset	Offset		
+Pre	2357	2417	
+Ictal	2417	2577
+Post	2577	2697

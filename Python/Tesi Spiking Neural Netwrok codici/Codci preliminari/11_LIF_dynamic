@@ -1,0 +1,71 @@
+import ipywidgets
+import numpy as np
+import matplotlib.pyplot as plt
+
+#giusto per capire come funziona ipywidgets
+def f(m):
+    x=np.linspace(-3,3,1000)
+    y=m*x
+    
+    plt.plot(x,y)
+    
+ipywidgets.interact(f,m=(-2,2,0.1))
+__________________________________________________________
+
+
+step=500
+
+IN=np.zeros(step)
+freq=0.5
+mask = np.random.random(step)
+IN[mask<freq] = 1.0
+
+def LIF_neuron(tau,V_th,W):
+    beta=np.exp(-1/tau)
+    U=0
+    U_rec=[]
+    S_rec=[]
+    for t in range(step):
+        U=beta*U+W*IN[t]
+        U_rec.append(U)
+        S=0
+        if U>V_th:
+            U=0
+            S=1
+        S_rec.append(S)
+    x=range(step)
+    plt.plot(x,U_rec,x,V_th*np.ones(step),'r--',x,1.1*V_th*np.array(S_rec),'o')
+    
+LIF_neuron(tau=50,V_th=10,W=1)
+
+__________________________________________________________
+
+step=500
+
+def LIF_neuron(tau,V_th,W,in_freq):
+    beta=np.exp(-1/tau)
+    U=0
+    IN=np.zeros(step)
+    mask = np.random.random(step)
+    IN[mask<in_freq] = 1.0
+    
+    U_rec=[]
+    S_rec=[]
+    for t in range(step):
+        U=beta*U+W*IN[t]
+        U_rec.append(U)
+        S=0
+        if U>V_th:
+            U=0
+            S=1
+        S_rec.append(S)
+    x=range(step)
+    plt.plot(x,U_rec,x,V_th*np.ones(step),'r--',x,1.1*V_th*np.array(S_rec),'o')
+    
+    print(f'fout:{sum(np.array(S_rec))/step}') 
+ 
+
+ipywidgets.interact(LIF_neuron,tau=(1,50,1),V_th=(10,50,1),W=(1,50,1),in_freq=(0,1,0.1))
+
+
+__________________________________________________________

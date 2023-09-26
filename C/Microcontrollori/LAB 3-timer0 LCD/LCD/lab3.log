@@ -1,0 +1,11 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F44K22 -DL -O11111114 -fo8 -N"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 3-timer0 LCD\LCD\lab3.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 3-timer0 LCD\LCD\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "lab3.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CType.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
+hint: 0	1139	Available RAM: 747 [bytes], Available ROM: 16384 [bytes]	 
+diagnostics: 0	122	Compilation Started	lab3.c
+diagnostics: 41	123	Compiled Successfully	lab3.c
+diagnostics: 0	127	All files Compiled in 32 ms	 
+hint: 0	1144	Used RAM (bytes): 66 (9%)  Free RAM (bytes): 681 (91%)	Used RAM (bytes): 66 (9%)  Free RAM (bytes): 681 (91%)
+hint: 0	1144	Used ROM (bytes): 1150 (7%)  Free ROM (bytes): 15234 (93%)	Used ROM (bytes): 1150 (7%)  Free ROM (bytes): 15234 (93%)
+diagnostics: 0	125	Project Linked Successfully	lab3.mcppi
+diagnostics: 0	128	Linked in 31 ms	 
+diagnostics: 0	129	Project 'lab3.mcppi' completed: 219 ms	 
+diagnostics: 0	103	Finished successfully: 11 apr 2021, 16:31:14	lab3.mcppi

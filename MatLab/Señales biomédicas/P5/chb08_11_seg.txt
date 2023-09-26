@@ -1,0 +1,4 @@
+	Onset	Offset	
+Pre	2928	2988	
+Ictal	2988	3122
+Post	3122	3242

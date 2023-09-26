@@ -1,0 +1,11 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F45K22 -DL -O11111114 -fo8 -N"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 8-TDE\parte 1\parte1.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\LAB 8-TDE\parte 1\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "parte1.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl" "__Lib_CString.mcl" "__Lib_Conversions.mcl" "__Lib_LcdConsts.mcl" "__Lib_Lcd.mcl"	 
+hint: 0	1139	Available RAM: 1515 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	parte1.c
+diagnostics: 71	123	Compiled Successfully	parte1.c
+diagnostics: 0	127	All files Compiled in 47 ms	 
+hint: 0	1144	Used RAM (bytes): 32 (2%)  Free RAM (bytes): 1483 (98%)	Used RAM (bytes): 32 (2%)  Free RAM (bytes): 1483 (98%)
+hint: 0	1144	Used ROM (bytes): 1084 (3%)  Free ROM (bytes): 31684 (97%)	Used ROM (bytes): 1084 (3%)  Free ROM (bytes): 31684 (97%)
+diagnostics: 0	125	Project Linked Successfully	parte1.mcppi
+diagnostics: 0	128	Linked in 31 ms	 
+diagnostics: 0	129	Project 'parte1.mcppi' completed: 219 ms	 
+diagnostics: 0	103	Finished successfully: 25 mag 2021, 18:56:23	parte1.mcppi

@@ -1,0 +1,21 @@
+0	1	mikroCPIC1618.exe -MSF -DBG -pP18F45K22 -DL -O11111114 -fo8 -N"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\29_07_2020\parte C\C.mcppi" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\Defs\" -SP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" -SP"C:\Users\mbasc\Desktop\uni\1 anno magistrale\Secondo semstre\Microcontrollori\LAB\29_07_2020\parte C\" -IP"C:\Users\Public\Documents\Mikroelektronika\mikroC PRO for PIC\uses\P18\" "C.c" "__Lib_Math.mcl" "__Lib_MathDouble.mcl" "__Lib_System.mcl" "__Lib_Delays.mcl"	 
+hint: 0	1139	Available RAM: 1515 [bytes], Available ROM: 32768 [bytes]	 
+diagnostics: 0	122	Compilation Started	C.c
+error: 50	324	Undeclared identifier 'Lcd_init' in expression	C.c
+error: 51	324	Undeclared identifier 'Lcd_cmd' in expression	C.c
+error: 52	324	Undeclared identifier 'Lcd_Cmd' in expression	C.c
+error: 53	324	Undeclared identifier 'Lcd_Out' in expression	C.c
+error: 96	324	Undeclared identifier 'Lcd_cmd' in expression	C.c
+error: 97	324	Undeclared identifier 'Lcd_Out' in expression	C.c
+error: 103	324	Undeclared identifier 'Lcd_cmd' in expression	C.c
+error: 104	324	Undeclared identifier 'Lcd_Out' in expression	C.c
+error: 132	324	Undeclared identifier 'IntToStr' in expression	C.c
+error: 133	324	Undeclared identifier 'Lcd_Out' in expression	C.c
+error: 134	324	Undeclared identifier 'IntToStr' in expression	C.c
+error: 135	324	Undeclared identifier 'Lcd_Out' in expression	C.c
+hint: 31	1163	Variable 'vel' has been declared, but not used	C.c
+hint: 32	1163	Variable 'duty_cycle' has been declared, but not used	C.c
+hint: 33	1163	Variable 'T' has been declared, but not used	C.c
+hint: 35	1163	Variable 'velocita_motore_char' has been declared, but not used	C.c
+error: 155	312	Internal error ''	C.c
+error: 0	102	Finished (with errors): 08 giu 2021, 15:15:07	C.mcppi
