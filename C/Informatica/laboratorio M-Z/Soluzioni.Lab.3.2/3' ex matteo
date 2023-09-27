@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void reverse(char s[]){
+    if(s[0] != '\0'){
+        printf("%c", s[0]);
+        reverse(&s[1]);
+        printf("%c",s[0]);
+    }else{
+        printf("   ");
+    }
+}
+
+int main()
+{
+    char string[10];
+    printf("inserire stringa --> ");
+    scanf("%s",string);
+    reverse(string);
+    return 0;
+}
+
