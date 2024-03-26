@@ -15,7 +15,7 @@ from utils import spike_calculator,plot_I_in,plot_network
 JSON_PATH = r"C:\Users\mbasc\OneDrive - Politecnico di Milano\Tesi\image_recognition\simplified slayer,lr=1e-3,64x30x10,FA, no noise.json"
 SHOW_LEARNING=0
 EPOCH=40
-lr=5e-4
+lr=1e-3
 
 training="Y"
 data= load_digits()
@@ -71,9 +71,9 @@ if 1:
 
 if 1:#salvataggio dati
     data={
-         "epoch":[],
-         "acuracy":[],
-         "confusion matrix":[],
+        "epoch":[],
+        "acuracy":[],
+        "confusion matrix":[],
     }
 
 for e in range(EPOCH):  
@@ -84,24 +84,24 @@ for e in range(EPOCH):
     X_train,y_train=shuffle(X_train,y_train)
     for i in tqdm(range(X_train.shape[0])):     
         #if y_train[i]!=8: 
-           obj=SPIKE_CALCULATOR.Calculate(label=y_train[i],start=0,stop=Num_step)
-           Network.reset()
-           Network.run(num_step=Num_step,I_in=X_train[i],obj=obj)
+        obj=SPIKE_CALCULATOR.Calculate(label=y_train[i],start=0,stop=Num_step)
+        Network.reset()
+        Network.run(num_step=Num_step,I_in=X_train[i],obj=obj)
         
     #mostra learning 
     if SHOW_LEARNING and i%30==0:
-            #i=0
-            training=input("new samp? ")
-            while(training=="Y"):          
-               obj=SPIKE_CALCULATOR.Calculate(label=y_train[i],start=0,stop=Num_step)
-               Network.reset()
-               Network.run(num_step=Num_step,I_in=X_train[i],obj=obj)
-               plt.figure(f"image of the number: {y_train[i]}")
-               plt.plot(X_train[i])
-               Network.show(S_obj=obj)
-               plt.show()
-               training=input("new samp? ")
-               #i+=1
+        #i=0
+        training=input("new samp? ")
+        while(training=="Y"):          
+           obj=SPIKE_CALCULATOR.Calculate(label=y_train[i],start=0,stop=Num_step)
+           Network.reset()
+           Network.run(num_step=Num_step,I_in=X_train[i],obj=obj)
+           plt.figure(f"image of the number: {y_train[i]}")
+           plt.plot(X_train[i])
+           Network.show(S_obj=obj)
+           plt.show()
+           training=input("new samp? ")
+           #i+=1
                  
  #FASE DI TEST
     print("Test progress")
@@ -111,15 +111,15 @@ for e in range(EPOCH):
     y_true=[]
     y_pred=[]
     for i in tqdm(range(X_test.shape[0])):
-          #if y_test[i]!=8:
-            total_try+=1
-            Network.reset()
-            Network.run(num_step=Num_step,I_in=X_test[i],obj=obj)
-            winner_neur=Network.Calculate_winner_neur()
-            if y_test[i]==winner_neur:
-                 correct_guess+=1
-            y_true.append(y_test[i])
-            y_pred.append(winner_neur)
+        #if y_test[i]!=8:
+        total_try+=1
+        Network.reset()
+        Network.run(num_step=Num_step,I_in=X_test[i],obj=obj)
+        winner_neur=Network.Calculate_winner_neur()
+        if y_test[i]==winner_neur:
+             correct_guess+=1
+        y_true.append(y_test[i])
+        y_pred.append(winner_neur)
     
     accuracy=(correct_guess/total_try)*100
     conf_matrix=confusion_matrix(y_true=np.array(y_true),y_pred=np.array(y_pred))
@@ -131,6 +131,6 @@ for e in range(EPOCH):
     print(conf_matrix)
 
 with open(JSON_PATH, "w") as fp:
-         json.dump(data, fp, indent=4)
+    json.dump(data, fp, indent=4)
 
 print("______________________________________________________________________________FINE")        

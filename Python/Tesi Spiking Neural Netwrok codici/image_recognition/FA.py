@@ -19,7 +19,7 @@ EPOCH=10
 show_interval=100
 loser_freq=0
 winner_freq=0.7
-lr=7e-4 #learning rate
+lr=1e-3 #learning rate
 JSON_PATH=r"C:\Users\mbasc\OneDrive - Politecnico di Milano\Tesi\image_recognition\FA test\FA same initial weight.json"
 
 if 1:#NETWORK

@@ -8,7 +8,7 @@ dim_in=13
 no.LIF_neuron.treshold=0.185
 tau=0.01 #tau deve essere del ordine di grandezza del tempo di pronuncia di un si o u no, che è circa 0.3s
 tau_step=tau*Num_step
-tau_step=50#cosi lo scelgo io come multiplo di dt
+tau_step=20#cosi lo scelgo io come multiplo di dt
 no.LIF_neuron.alfa=1/tau_step #plottando (1-alfa)^x+ U(0) si puo vedere la risposta al impulso
 no.LIF_neuron.T_refactory=0 #periodo refrattario neuroni 
 no.LIF_neuron.RestingPotential=0
@@ -32,5 +32,5 @@ Network=no.Network_slayer(dim=dim,saveU=1,saveS=1,saveW=SHOW_LEARNING,meanW=mean
 
 Network.training_mode=True
 Network.Freq_coding=True
-Network.statit_dataset=True
+Network.statitc_dataset=True
 Network.change_beta(0)

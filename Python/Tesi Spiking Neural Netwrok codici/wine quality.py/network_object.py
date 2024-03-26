@@ -5,7 +5,9 @@ from scipy.signal import convolve2d
 from copy import copy
 from scipy.stats import bernoulli
 
+   
 class LIF_neuron: #neurone leaky integrate and fire
+
     treshold=1
     alfa=0.9 #alfa=dt/tau
     T_refactory=0
@@ -13,20 +15,23 @@ class LIF_neuron: #neurone leaky integrate and fire
     NOISE=False
     noise_mu=0
     noise_var=treshold/10
-    def __init__(self,saveU=0,saveS=0): 
+    a=0
+
+    def __init__(self,saveU=False,saveS=False): 
         self.U=0 #potenziale di membrana
         self.nextU=0
         self.refct_counter=0
         self.resting_state=False
 
-        self.saveU=saveU
+        self.saveU=saveU 
         self.saveS=saveS
         if saveU: #richiesta di salvare i valori del potenzaile (da default falso)       
          self.U_record=[] 
         if saveS: #richiesta di salvare i valori delle spike (da default falso)
          self.S_record=[]
         
-    def update(self,I_in): #simula il neurone dal tempo t al t+1 (questa funzione dovrà essere inserita in un for)
+    def update(self,I_in:int): #simula il neurone dal tempo t al t+1 (questa funzione dovrà essere inserita in un for)
+        """Con questa funzione simulo lo step successivo di un neuorno LIF"""
         spike=0
         self.U=self.nextU
 
@@ -65,7 +70,7 @@ class LIF_neuron: #neurone leaky integrate and fire
     
     def show(self): #plotta il potenziale o le spike a seconda se sono state richieste o no
         if self.saveU==0 and self.saveS==0:
-            print("plot non non abilitato")
+            print("plot non non abilitato non hai richiesto di salvare")
         
         if self.saveU==1 and self.saveS==1:
          step=np.size(np.array(self.U_record))
@@ -82,13 +87,13 @@ class LIF_neuron: #neurone leaky integrate and fire
          plt.plot(x,self.U_record,x,self.treshold*np.ones(step),'r--')
 
         plt.xlabel("Time step")
-      
+
 class LIF_layer: #layer con "dim" neuroni 
 
     def __init__(self,dim,saveU=0,saveS=0):
         self.dim=dim 
         self.neur=[]
-        for i in range(dim):
+        for _ in range(dim):
             self.neur.append(LIF_neuron(saveU,saveS))
         
         self.saveS=saveS
@@ -156,7 +161,7 @@ class LIF_layer: #layer con "dim" neuroni
             plt.xlabel("Time step")
             plt.ylabel("Neuron ")
             plt.yticks([])
-                              
+
 class synapse: #insieme delle sinapsi che collegano il layer l-1 di idmensione dim_pre al layer l di imensione dim_post
     only_positive=False
 
@@ -164,7 +169,7 @@ class synapse: #insieme delle sinapsi che collegano il layer l-1 di idmensione d
         self.dim_pre=dim_pre 
         self.dim_post=dim_post 
         if self.only_positive:   self.W=np.abs(np.random.normal(loc=mean,scale=var,size=(dim_post,dim_pre))) #pesi sinaptici
-        if not self.only_positive:       self.W=(np.random.normal(loc=mean,scale=var,size=(dim_post,dim_pre)))
+        if not self.only_positive:    self.W=(np.random.normal(loc=mean,scale=var,size=(dim_post,dim_pre)))
         
     def update(self, spike_in): #ottengo il vettore di spike[dim_pre] provenienti dal layer precedente
         I=np.dot(self.W,spike_in)
@@ -175,9 +180,8 @@ def Box_car(U,min,max): #funzione gradiente surrogato box car
    else: return 0
 
 def bell_shape(U,alfa,beta,treshold): #funzione gradiente surrogato
-
    return alfa*np.exp(-beta*np.abs(U-treshold))
-        
+
 class Neuron_slayer (LIF_neuron): #il neurone del network decolle è un neurone LIF normale ma bisogna tener conto della sua attività P e del gradiente surrogato del suo potenziale per poter fare learning
     beta=8
 
@@ -199,12 +203,8 @@ class Neuron_slayer (LIF_neuron): #il neurone del network decolle è un neurone 
         return spike
 
     def reset_neur(self):
-        self.U=0
-        if self.saveU:
-              self.U_record=[]
-        if self.saveS:
-              self.S_record=[]
-        
+        self.reset()
+
         self.P=0
         self.grad_record=[]
         self.P_record=[]
@@ -228,7 +228,7 @@ class Neuron_slayer (LIF_neuron): #il neurone del network decolle è un neurone 
          plt.plot(x,self.U_record,x,self.treshold*np.ones(step),'r--')
 
         plt.xlabel("Time step")
-        
+
 class Layer_slayer(): #il layer decolle è fatto di neuroni decolle quindi terrà conto delle variabili aggiunte nel neurone decolle
     plot_type=0
 
@@ -359,7 +359,7 @@ class Synapse_slayer(synapse): #la sinapsi in Decolle è identica a una sinapsi 
       if self.confine_val:
              self.W[self.W<self.min_val]=self.min_val
              self.W[self.W>self.max_val]=self.max_val
-     
+
       for i in range(self.dim_post):
          for j in range(self.dim_pre):
             if self.save: self.W_record[i][j].append(self.W[i,j])
@@ -511,7 +511,7 @@ class Network_slayer:
            self.flip_spike_response=np.flip(np.power((1-self.layer[-1].neur[0].alfa),np.arange(num_step)))       
 
      def forward(self,num_step,I_in):
-        
+
         for n in range(num_step):
           if self.statitc_dataset: I=I_in
           if not self.statitc_dataset:I=I_in[:,n]
@@ -552,7 +552,7 @@ class Network_slayer:
               self.e[l]=np.matmul( self.synapse[l].W.transpose(),self.sigma[l+1])
               self.sigma[l]= self.surr_grad_record[l]*self.e[l]
               #devanisher+=1
-              
+
      def correlation(signal,kernell): #calcola la cross correlation di due vettori
        size=signal.shape[1]
        num_neur=signal.shape[0]
@@ -1172,8 +1172,7 @@ class Network_decolle:
             if l!=0 and l!=self.num_layer-1: #se il layer è quello di ingresso o finale appendiamo una lista vuota
                self.int_layer[l].change_beta(beta_val)
                 
-class Network_slayer_FA: 
-
+class Network_slayer_FA: #la rete slayer con feedback all'indietro
      training_mode=False   
      Freq_coding=True
      spike_conv_mode=False
@@ -1519,7 +1518,6 @@ class NetwrokI:
         for l in range(self.num_layer-1): #attacco sinapsi
             self.B.append(np.random.normal(loc=self.meanW,scale=(2/self.dim[l]+self.dim[l+1]),size=(self.dim[l],self.dim[l+1])))
            
-
      def run(self,num_step,I_in,obj): #I_in [neurone,tempo] obj [neurone] per freq coding e [neurone,tempo] per precice spiking time
         self.initialize_run(num_step)
         

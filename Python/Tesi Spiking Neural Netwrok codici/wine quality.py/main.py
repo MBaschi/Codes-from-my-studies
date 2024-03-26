@@ -22,7 +22,7 @@ X_train=scaler.transform(X_train)
 scaler.fit(X_test)
 X_test=scaler.transform(X_test)
 
-
+Accuracy_record=[]
 for e in range(EPOCH):    
     print(f'Epoch {e}')
     #FASE DI TRAINING
@@ -35,7 +35,7 @@ for e in range(EPOCH):
           Network.run(num_step=Num_step,I_in=X_train[i],obj=obj)
         
     #mostra learning 
-    if SHOW_LEARNING and e%3==0:
+    if SHOW_LEARNING and e%show_interval==0:
             i=0
             training=input("new samp? ")
             while(training=="Y"):     
@@ -73,7 +73,9 @@ for e in range(EPOCH):
           y_true.append(y_test[i])
           y_pred.append(winner_neur)
      
-    print(f"Accuracy={(correct_guess/total_try)*100}") 
+    print(f"Accuracy={(correct_guess/total_try)*100}")
+    Accuracy_record.append((correct_guess/total_try)*100) 
     print("Confuzion matrix:")
     print(confusion_matrix(y_true=np.array(y_true),y_pred=np.array(y_pred)))
+
 print("______________________________________________________________________________FINE")        
